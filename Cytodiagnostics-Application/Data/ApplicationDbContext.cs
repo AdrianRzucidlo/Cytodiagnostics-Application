@@ -10,6 +10,7 @@ namespace Cytodiagnostics_Application.Data
         {
 
         }
-        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
     }
 }
