@@ -39,6 +39,8 @@ namespace Cytodiagnostics_Application.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             var doctorToDelete = _db.Doctors.FirstOrDefault(x => x.Id == id);
@@ -47,6 +49,7 @@ namespace Cytodiagnostics_Application.Controllers
                 return NotFound();
             }
             _db.Doctors.Remove(doctorToDelete);
+            _db.SaveChanges();
             return RedirectToAction(nameof(Index));
 
         }

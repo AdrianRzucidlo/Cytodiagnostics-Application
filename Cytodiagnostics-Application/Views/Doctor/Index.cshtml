@@ -10,5 +10,8 @@ else
     foreach(var doctor in Model)
     {
         <p> @doctor.Name @doctor.Surname </p>
+        <form asp-action="Delete" method="post" asp-route-id=@doctor.Id>
+            <button type="submit" class="btn btn-danger" value="Usuń doktora!">Usun doktora</button>
+        </form>
     }
 }
