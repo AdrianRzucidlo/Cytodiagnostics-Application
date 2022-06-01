@@ -21,7 +21,7 @@ namespace Cytodiagnostics_Application.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(_db.Doctors.ToList());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
