@@ -38,5 +38,17 @@ namespace Cytodiagnostics_Application.Controllers
                 return View(model);
             }
         }
+
+        public IActionResult Delete(int id)
+        {
+            var doctorToDelete = _db.Doctors.FirstOrDefault(x => x.Id == id);
+            if(doctorToDelete == null)
+            {
+                return NotFound();
+            }
+            _db.Doctors.Remove(doctorToDelete);
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
